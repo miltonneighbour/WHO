@@ -9,6 +9,7 @@ library(plyr)
 
 # check.names=FALSE allows column names to have space
 # na.strings="" means all empty strings will be treated as NA value
+
 WHO <- read.csv("data/WHO.csv",na.strings="",check.names=FALSE)
 
 # Categorical columns such as CountryID are discarded 
@@ -50,6 +51,6 @@ WHO.subset2 <- WHO2[,4:358]
 
 
 
-# ## Color brewer
+##### Color brewer #####
 # Color brewer: http://colorbrewer2.org
 colorbrewer <- "{minValue:0,colors:['#F7FCF0', '#E0F3DB', '#CCEBC5', '#A8DDB5', '#7BCCC4', '#4EB3D3', '#2B8CBE', '#0868AC', '#084081']}"

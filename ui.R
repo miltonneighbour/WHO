@@ -22,7 +22,7 @@ shinyUI(navbarPage("WHO Data Set Visualization",
 			width=3,
 			h4("Source Code", style="color:#225ea8"),
 			p("The source code of this application is available at ", 
-				a("GitHub", href="https://github.com/miltonneighbour/WHO")),
+				a("GitHub", href="https://github.com/m1ng/WHO")),
 			br(),
 			h4("Video", style="color:#225ea8"),
 			p("A demo video is available at ", 
@@ -48,7 +48,7 @@ shinyUI(navbarPage("WHO Data Set Visualization",
 			# Analysis: Variables Input
 			h4("Variables Input", style="color:#1d91c0"),
 			p("Pair of variables selected here will be used in correlation test, scatterplot and maps."),
-			div(em("Note: Categorical variables such as 'CountryID', 'PacificID' etc are removed from the list."),style="color:grey"),
+			div(em("Note: Categorical variables such as 'CountryID', 'Continent' etc are removed from the list."),style="color:grey"),
 			br(),
 
 			# Analysis: Correlation Test
