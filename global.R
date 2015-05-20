@@ -21,11 +21,11 @@ WHO.subset <- WHO.subset[,order(names(WHO.subset))]
 # Goal: Data frame with list of variables pairs with correlation coefficient
 # Only keeps column with number of NA < half of the observations, correlation with huge number of NA value is not reliable and generate a lot of noise
 n <- 0.5*nrow(WHO.subset)
-WHO.subset <- WHO.subset[,colSums(is.na(WHO.subset)) < n]	
-WHO.matrix <- data.frame(WHO.subset, check.names=FALSE) 
+WHO.filter <- WHO.subset[,colSums(is.na(WHO.subset)) < n]	
+WHO.matrix <- data.frame(WHO.filter, check.names=FALSE) 
 
 # Pearson's method is used (default method)
-WHO.cor <- cor(WHO.matrix, use="pairwise.complete.obs")
+WHO.cor <- cor(WHO.filter, use="pairwise.complete.obs")
 
 # To make table that rank correlation
 # Columns 1 & 2 are correlated variables, column 3 is the correlation coefficient
@@ -54,3 +54,7 @@ WHO.subset2 <- WHO2[,4:358]
 ##### Color brewer #####
 # Color brewer: http://colorbrewer2.org
 colorbrewer <- "{minValue:0,colors:['#F7FCF0', '#E0F3DB', '#CCEBC5', '#A8DDB5', '#7BCCC4', '#4EB3D3', '#2B8CBE', '#0868AC', '#084081']}"
+
+
+
+

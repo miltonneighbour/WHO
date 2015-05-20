@@ -56,7 +56,8 @@ shinyServer(function(input, output) {
     # Horizontal x-axis as Variable1 (from input selection)
     # Vertical y-axis as Variable2 (from input selection)
     ggplot(WHO.subset2, aes_string(x=X, y=Y), environment=environment()) +
-      geom_point(size=5, colour="#4eb3d3", alpha = 0.4)+
+      geom_point(size=5,aes(colour=factor(WHO$Continent)), alpha = 0.7)+
+      scale_colour_manual(values=c('#7fc97f','#beaed4', '#fdc086','#ffff99','#386cb0','#f0027f','#bf5b17'))+
       xlab(input$spVar1)+
       ylab(input$spVar2)+
       theme(panel.background=element_rect(fill="white"),
