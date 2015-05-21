@@ -49,7 +49,9 @@ WHO2 <- read.csv("data/WHO.csv",na.strings="")
 # Categorical columns such as CountryID are discarded
 WHO.subset2 <- WHO2[,4:358]
 
-
+# Table for Country-Continent
+CountryContinent <- data.frame(WHO$Country, WHO$Continent)
+CountryContinent <- CountryContinent[order(CountryContinent$WHO.Continent),]
 
 ##### Color brewer #####
 # Color brewer: http://colorbrewer2.org

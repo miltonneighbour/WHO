@@ -56,7 +56,7 @@ shinyServer(function(input, output) {
     # Horizontal x-axis as Variable1 (from input selection)
     # Vertical y-axis as Variable2 (from input selection)
     ggplot(WHO.subset2, aes_string(x=X, y=Y), environment=environment()) +
-      geom_point(size=5,aes(colour=factor(WHO$Continent)), alpha = 0.7)+
+      geom_point(size=5,aes(colour=factor(WHO$Continent)), alpha = 0.8)+
       scale_colour_manual(values=c('#7fc97f','#beaed4', '#fdc086','#ffff99','#386cb0','#f0027f','#bf5b17'))+
       xlab(input$spVar1)+
       ylab(input$spVar2)+
@@ -91,12 +91,12 @@ shinyServer(function(input, output) {
   # Variable 1 from input selection
   # The value from data frame WHO is mapped to world map based on countries
   # The map is colored sequentially based on scale. The sequence is based on the sequence of color code in "colorbrewer"
-  # defaultColor = color for unspecified/null value (pale grey)
+  # defaultColor = color for unspecified/null value (pale orange)
   output$mapA <- renderGvis({
 
     gvisGeoChart(WHO,
       locationvar="Country", colorvar=input$spVar1,
-      options=list(colorAxis=colorbrewer,defaultColor='#F5F5F5'))
+      options=list(colorAxis=colorbrewer,defaultColor='#fdae61'))
     })
 
   # ===== Plot map B =====
@@ -104,8 +104,14 @@ shinyServer(function(input, output) {
   output$mapB <- renderGvis({
     gvisGeoChart(WHO,
       locationvar="Country", colorvar=input$spVar2,
-      options=list(colorAxis=colorbrewer,defaultColor='#F5F5F5'))     
+      options=list(colorAxis=colorbrewer,defaultColor='#fdae61'))     
   })
+  
+  ##### Country Continent table #####
+  output$cctable <-renderDataTable({
+    CountryContinent
+  }, options = list(orderClasses=TRUE, pageLength=10)
+  )
   
 
   ##### Correlation table #####
