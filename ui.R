@@ -72,7 +72,7 @@ shinyUI(navbarPage("WHO Data Set Visualization",
 			div(em("Note: Countries that are not listed in the WHO data set are coloured as grey; Countries that are listed in the data set but has no data for variables selected are coloured in orange."),style="color:grey"),
 			br(),
       
-      # Country-Continent Table
+      			# Country-Continent Table
 			h3("Country-Continent Table", style="color:#225ea8"),
 			p("Scatterplot is coloured with continent ID (a single digit), as assigned by WHO. However, several inconsistensies were spotted. For instance, all countries in continent 7 belongs to Asia, but Asia countries and Oceania countries are all assigned as continent 6. It was unclear how WHO assigned countries to continent, therefore scatterplot is label with continent ID, not the name of continent. The countries which the continent ID is assigned to can be referred from this table."),
 
